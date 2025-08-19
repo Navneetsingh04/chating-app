@@ -1,32 +1,30 @@
 import { useState } from "react";
 import { ShipWheelIcon } from "lucide-react";
 import { Link } from "react-router";
-import {
-  useMutation,
-  useQueryClient,
-} from "@tanstack/react-query";
-import { login } from "../lib/api";
+import useLogin from "../hooks/useLogin";
 
 const Login = () => {
-  const [LoginData, setLoginData] = useState({
+  const [loginData, setLoginData] = useState({
     email: "",
     password: "",
   });
 
-  const queryClient = useQueryClient();
+  // const queryClient = useQueryClient();
 
-  const {
-    mutate: LoginMutation,
-    isPending,
-    error,
-  } = useMutation({
-    mutationFn: login,
-    onSuccess: () => queryClient.invalidateQueries({ queryKey: ["authUser"] }),
-  });
+  // const {
+  //   mutate: loginMutation,
+  //   isPending,
+  //   error,
+  // } = useMutation({
+  //   mutationFn: login,
+  //   onSuccess: () => queryClient.invalidateQueries({ queryKey: ["authUser"] }),
+  // });
+
+  const {isPending,error,loginMutation} = useLogin();
 
   const handleLogin = (e) => {
     e.preventDefault();
-    LoginMutation(LoginData);
+    loginMutation(loginData);
   };
   return (
     <div
@@ -54,10 +52,9 @@ const Login = () => {
             <form onSubmit={handleLogin}>
               <div className="space-y-4">
                 <div>
-                  <h2 className="text-xl font-semibold"> Login</h2>
+                  <h2 className="text-xl font-semibold"> Welcome Back</h2>
                   <p className="text-sm opacity-70">
-                    Join VisionChart and Start your language learning
-                    adeventure!
+                    Sign in to your account to continue your language journey
                   </p>
                 </div>
                 <div className="space-y-3">
@@ -69,10 +66,10 @@ const Login = () => {
                       type="email"
                       placeholder="Enter your Email"
                       className="input input-bordered w-full"
-                      value={LoginData.email}
+                      value={loginData.email}
                       onChange={(e) =>
                         setLoginData({
-                          ...LoginData,
+                          ...loginData,
                           email: e.target.value,
                         })
                       }
@@ -87,10 +84,10 @@ const Login = () => {
                       type="password"
                       placeholder="Enter Your Password"
                       className="input input-bordered w-full"
-                      value={LoginData.password}
+                      value={loginData.password}
                       onChange={(e) =>
                         setLoginData({
-                          ...LoginData,
+                          ...loginData,
                           password: e.target.value,
                         })
                       }
@@ -98,39 +95,16 @@ const Login = () => {
                     />
                   </div>
 
-                  <div className="form-control">
-                    <label className="label cursor-pointer justify-start gap-2">
-                      <input
-                        type="checkbox"
-                        placeholder="Your Password"
-                        className="checkbox checkbox-sm"
-                        required
-                      />
-                      <span className="text-xs leading-tight">
-                        {" "}
-                        I agree to the {""}
-                      </span>
-                      <span className="text-primary hover:underline">
-                        {" "}
-                        terms of services
-                      </span>{" "}
-                      and {""}
-                      <span className="text-primary hover:underline">
-                        {" "}
-                        privacy and policy
-                      </span>
-                    </label>
-                  </div>
                 </div>
                 <button className="btn btn-primary w-full" type="submit">
                   {isPending ? (
                     <>
                       <span className="loading loading-spinner loading-xs">
-                        Loading...
+                        Signing in...
                       </span>
                     </>
                   ) : (
-                    "Login"
+                    "Sign In"
                   )}
                 </button>
 
@@ -138,7 +112,7 @@ const Login = () => {
                   <p className="text-sm">
                     Don't have an account? {""}
                     <Link to="/signup" className="text-primary hover:underline">
-                      Sign up
+                      Create account
                     </Link>
                   </p>
                 </div>
