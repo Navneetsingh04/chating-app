@@ -99,13 +99,13 @@ const App = () => {
           path="/call/:id"
           element={
             isAuthenticated ? (
-              !isOnboarded ? (
+              isOnboarded ? (
                 <CallPage/>
               ) : (
                 <Navigate to="/login" />
               )
             ) : (
-              <Navigate to="/onboarding" />
+              <Navigate to={!isAuthenticated ? "/login" : "/onboarding"} />
             )
           }
         />
