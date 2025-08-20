@@ -41,11 +41,11 @@ async function signup(req, res) {
     }
 
     const token = jwt.sign({ userId: user._id }, process.env.JWT_SCERET_KEY, {
-      expiresIn: "1d",
+      expiresIn: "7d",
     });
 
     res.cookie("jwt", token, {
-      maxAge: 1 * 24 * 60 * 1000,
+      maxAge: 7 * 24 * 60 * 60 * 1000,
       httpOnly: true,
       sameSite: "strict",
       secure: process.env.NODE_ENV === "production",
@@ -77,11 +77,11 @@ async function login(req, res) {
     }
 
     const token = jwt.sign({ userId: user._id }, process.env.JWT_SCERET_KEY, {
-      expiresIn: "1d",
+      expiresIn: "7d",
     });
 
     res.cookie("jwt", token, {
-      maxAge: 1 * 24 * 60 * 1000,
+      maxAge: 7 * 24 * 60 * 60 * 1000,
       httpOnly: true,
       sameSite: "strict",
       secure: process.env.NODE_ENV === "production",
@@ -133,7 +133,7 @@ async function onboard(req, res) {
     // Updating the user Info IN Stream
 
     try {
-      const stramUser = await upsertStreamUser({
+      await upsertStreamUser({
         id: updatedUser._id.toString(),
         name: updatedUser.name,
         image: updatedUser.profilePic || "",
