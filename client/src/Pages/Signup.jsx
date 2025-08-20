@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ShipWheelIcon } from "lucide-react";
+import { MessageCircleCode } from "lucide-react";
 import { Link } from "react-router";
 import {
   useMutation,
@@ -38,7 +38,7 @@ const Signup = () => {
         {/* left side */}
         <div className="w-full lg:w-1/2 p-4 sm:p-8 flex flex-col">
           <div className="mb-4 flex items-center justify-start gap-2">
-            <ShipWheelIcon className="size-9 text-primary" />
+            <MessageCircleCode className="size-9 text-primary" />
             <span className="text-3xl font-bold font-mono bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary tracking-wider">
               VisionChart
             </span>

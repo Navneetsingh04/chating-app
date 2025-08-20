@@ -6,7 +6,7 @@ import { completeOnboarding } from "../lib/api";
 import {
   CameraIcon,
   MapPinIcon,
-  ShipWheelIcon,
+  MessageCircleCode,
   ShuffleIcon,
 } from "lucide-react";
 import { LANGUAGES } from "../data/index.js";
@@ -203,7 +203,7 @@ const Onboarding = () => {
                 </>
               ) : (
                 <>
-                  <ShipWheelIcon className="size-5 mr-2" />
+                  <MessageCircleCode className="size-5 mr-2" />
                   Complete Onboarding
                 </>
               )}
