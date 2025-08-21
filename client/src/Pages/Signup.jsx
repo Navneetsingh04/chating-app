@@ -40,7 +40,7 @@ const Signup = () => {
           <div className="mb-4 flex items-center justify-start gap-2">
             <MessageCircleCode className="size-9 text-primary" />
             <span className="text-3xl font-bold font-mono bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary tracking-wider">
-              VisionChart
+              VisionChat
             </span>
           </div>
 
@@ -57,7 +57,7 @@ const Signup = () => {
                 <div>
                   <h2 className="text-xl font-semibold"> Create an Account</h2>
                   <p className="text-sm opacity-70">
-                    Join VisionChart and Start your language learning
+                    Join VisionChat and Start your language learning
                     adeventure!
                   </p>
                 </div>
