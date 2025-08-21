@@ -114,7 +114,7 @@ VITE_STREAM_API_KEY=your_stream_api_key
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/Navneetsingh04/chating-app.git
+   git clone https://github.com/Navneetsingh04/Real-Time-Chat-App.git
    cd chating-app
    ```
 
