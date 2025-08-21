@@ -2,14 +2,14 @@
 
 A modern, feature-rich real-time chat application built with React, Node.js, and Stream.io. This application provides seamless messaging, video calling, friend management, and notification features with a beautiful, responsive UI.
 
--[Live Demo](https://visionchat-one.vercel.app)
+- [Live Demo](https://visionchat-one.vercel.app)
 
 
 ## 🖼️ Screenshots
 
 | Home Page | Chat Page | Login page|
 |-----------|----------------|-----------------|
-| ![home](./client/public/screenshots/Home.png) | ![Chat Page](./client/public/screenshots/chat.png) | ![Login Page](./client/public/screenshots/first.png) |
+| ![home](./client/public/screenshots/Home.png) | ![Chat Page](./client/public/screenshots/Chat.png) | ![Login Page](./client/public/screenshots/first.png) |
 
 ## 🚀 Features
 
@@ -187,11 +187,3 @@ This project is licensed under the ISC License.
 - [Tailwind CSS](https://tailwindcss.com/) for the utility-first CSS framework
 - [DaisyUI](https://daisyui.com/) for beautiful component library
 - [React](https://reactjs.org/) team for the amazing framework
-
-## 📞 Support
-
-If you have any questions or need help, please open an issue on GitHub.
-
----
-
-⭐ **If you found this project helpful, please give it a star!** ⭐
