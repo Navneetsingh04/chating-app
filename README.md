@@ -83,7 +83,7 @@ chating-app/
 ## 🚀 Getting Started
 
 ### Prerequisites
-- Node.js (v18 or higher)
+- Node.js
 - MongoDB database
 - Stream.io account (for chat and video features)
 
@@ -93,7 +93,7 @@ Create `.env` files in both client and server directories:
 
 #### Server (.env)
 ```env
-PORT=5000
+PORT=4000
 MONGODB_URI=your_mongodb_connection_string
 JWT_SECRET=your_jwt_secret_key
 NODE_ENV=development
@@ -106,7 +106,7 @@ STREAM_API_SECRET=your_stream_api_secret
 
 #### Client (.env)
 ```env
-VITE_API_URL=http://localhost:5000/api
+VITE_API_URL=http://localhost:4000/api
 VITE_STREAM_API_KEY=your_stream_api_key
 ```
 
@@ -146,7 +146,7 @@ VITE_STREAM_API_KEY=your_stream_api_key
    ```bash
    npm run dev
    ```
-   Server will run on http://localhost:5000
+   Server will run on http://localhost:4000
 
 2. **Start the client** (from the client directory)
    ```bash
@@ -164,17 +164,9 @@ VITE_STREAM_API_KEY=your_stream_api_key
 6. **Notifications**: Stay updated with real-time notifications
 
 
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
 ## 📝 License
 
-This project is licensed under the ISC License.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## 👨‍💻 Author
 
