@@ -1,17 +1,7 @@
 import { axiosInstance } from "./axios";
 
 export const signup = async (signupData) => {
-  const res = await axiosInstance.post("auth/signup", signupData);
-  return res.data;
-};
-
-export const login = async (loginData) => {
-  const res = await axiosInstance.post("/auth/login", loginData);
-  return res.data;
-};
-
-export const logout = async () => {
-  const res = await axiosInstance.post("/auth/logout");
+  const res = await axiosInstance.post("/auth/signup", signupData);
   return res.data;
 };
 
@@ -23,6 +13,16 @@ export const getAuthUsers = async () => {
     console.log("Error in getAuthUser: ", error);
     return null;
   }
+};
+
+export const login = async (loginData) => {
+  const res = await axiosInstance.post("/auth/login", loginData);
+  return res.data;
+};
+
+export const logout = async () => {
+  const res = await axiosInstance.post("/auth/logout");
+  return res.data;
 };
 
 export const completeOnboarding = async (userData) => {
@@ -40,7 +40,7 @@ export async function getRecommendedUser() {
   return res.data;
 }
 
-export async function getOutgoingFriendReqs() {
+export async function getOutgoingFriendsReqs() {
   const res = await axiosInstance.get("/users/outgoing-friend-requests");
   return res.data;
 }
@@ -56,6 +56,11 @@ export async function getFriendRequests() {
 
 export async function acceptFriendRequest(requestId) {
   const response = await axiosInstance.put(`/users/friend-request/${requestId}/accept`);
+  return response.data;
+}
+
+export async function removeFriend(friendId) {
+  const response = await axiosInstance.delete(`/users/friend/${friendId}`);
   return response.data;
 }
 
