@@ -1,6 +1,6 @@
 import { Link } from "react-router";
 import { LANGUAGE_TO_FLAG } from "../data/index";
-import { MessageCircleIcon, VideoIcon } from "lucide-react";
+import { MapPinIcon, MessageCircleIcon, VideoIcon } from "lucide-react";
 
 export function getLanguageFlag(language) {
   if (!language) return null;
@@ -27,7 +27,15 @@ const FriendCard = ({ friend }) => {
           <div className="avatar size-12">
             <img src={friend.profilePic} alt={friend.name} />
           </div>
-          <h3 className="font-semibold truncate">{friend.name}</h3>
+          <div className="flex-1">
+            <h3 className="font-semibold truncate">{friend.name}</h3>
+            {friend.location && (
+              <div className="flex items-center text-xs opacity-70 mt-1">
+                <MapPinIcon className="size-3 mr-1" />
+                {friend.location}
+              </div>
+            )}
+          </div>
         </div>
 
         <div className="flex flex-wrap gap-1.5 mb-3">
@@ -40,7 +48,11 @@ const FriendCard = ({ friend }) => {
             Learning: {friend.learningLanguage}
           </span>
         </div>
-
+        
+        {friend.bio && (
+          <p className="text-sm opacity-70 mb-3 line-clamp-2">{friend.bio}</p>
+        )}
+        
         <div className="flex gap-2 mt-auto">
           <Link
             to={`/chat/${friend._id}`}

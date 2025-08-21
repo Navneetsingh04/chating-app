@@ -11,7 +11,7 @@ export async function getRecommendedUsers(req, res) {
         { _id: { $nin: currUser.friends } },
         { isOnboarded: true },
       ],
-    });
+    }).select("name profilePic nativeLanguage learningLanguage bio location");
 
     res.status(200).json(recommendedUser);
   } catch (error) {
@@ -24,7 +24,7 @@ export async function getMyFriends(req, res) {
   try {
     const user = await User.findById(req.user.id)
       .select("friends")
-      .populate("friends", "name profilePic nativeLanguage learningLanguage")
+      .populate("friends", "name profilePic nativeLanguage learningLanguage bio location")
 
     res.status(200).json(user.friends);
   } catch (error) {
